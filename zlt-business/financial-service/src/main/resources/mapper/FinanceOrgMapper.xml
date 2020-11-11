@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.central.finance.mapper.FinanceOrgMapper">
+    <select id="findList" resultType="com.central.finance.model.FinanceOrg">
+        select * from auth_finance_org t
+    </select>
+    <select id="getById" resultType="com.central.finance.model.FinanceOrg">
+        select * from auth_finance_org t where t.id=#{id}
+    </select>
+    <insert id="saveAdd">
+        insert into auth_finance_org (id,name,latest_inspect_msg) values (#{id},#{name},#{latestInspectMsg})
+    </insert>
+    <update id="update">
+        update auth_finance_org
+        <set>
+        <if test="name != null and name != ''">
+        name= #{name}
+        </if>
+        </set>
+         where id=#{id}
+    </update>
+</mapper>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.central.finance.mapper.FinanceOrgAttachmentMapper">
+    <select id="findList" resultType="com.central.finance.model.FinanceOrgAttachment">
+        select * from auth_finance_org_attachment t
+    </select>
+
+    <insert id="saveAdd">
+        insert  into auth_finance_org_attachment (id,comp_id,association,capi_report,credit_report,loan_use,legal_person_credit_report,cust_contract)
+        values (#{id},#{compId},#{association},#{capiReport},#{creditReport},#{loanUse},#{legalPersonCreditReport},#{custContract})
+    </insert>
+</mapper>

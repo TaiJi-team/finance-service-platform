@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.central.backstage.mapper.UserOrgLegpersMapper">
+    <select id="findList" resultType="com.central.backstage.model.UserOrgLegpers">
+        select * from sys_user_org_legpers t
+    </select>
+
+    <select id="findUserById"  resultType="com.central.backstage.model.UserOrgLegpers">
+        select * from sys_user_org_legpers t where comp_id=#{id}
+    </select>
+
+    <insert id="saveAdd">
+        insert into sys_user_org_legpers (id,name,comp_id,org_categ) values(#{id},#{name},#{compId},#{orgCateg})
+    </insert>
+</mapper>

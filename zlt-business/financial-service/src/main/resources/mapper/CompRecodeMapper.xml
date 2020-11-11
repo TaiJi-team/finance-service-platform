@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.central.finance.mapper.CompRecodeMapper">
+
+    <select id="findList" resultType="com.central.finance.model.HCompRecode">
+        select * from auth_comp_recode t where t.comp_id=#{compId}
+    </select>
+    <insert id="saveAdd">
+        insert into auth_comp_recode (id,comp_id,sign_oper) values (#{id},#{compId},#{signOper})
+    </insert>
+</mapper>

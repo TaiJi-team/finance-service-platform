@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.central.login.mapper.UserRoleMapper">
+
+   <!-- <select id="findByUsername" resultType="com.central.finance.model.User">
+        select * from sys_role t where t.phone=#{username}
+    </select>-->
+
+</mapper>

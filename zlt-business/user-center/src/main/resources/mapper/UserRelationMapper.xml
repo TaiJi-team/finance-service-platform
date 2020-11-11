@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.central.user.mapper.UserRelationMapper">
+    <select id="findList" resultType="com.central.user.model.UserRelation">
+        select * from sys_user_relation t
+    </select>
+    <!--增加sys_user_relation表-->
+    <insert id="saveRelation"  parameterType="com.central.user.model.UserRelation">
+        insert into sys_user_relation(id,enterp_type,pers_categ,org_categ,user_id,comp_id,province,city,county)
+        values (#{id},#{enterpType},#{persCateg},#{orgCateg},#{userId},#{compId},#{province},#{city},#{county})
+    </insert>
+    <!--增加sys_user_role表表-->
+    <insert id="saveUserRole" parameterType="com.central.user.model.UserRole">
+        insert into sys_user_role(user_id,role_id)
+        values(#{userId},#{roleId})
+    </insert>
+    <select id="findUserById" resultType="com.central.user.model.UserRelation">
+                select * from sys_user_relation t where t.comp_id=#{id}
+    </select>
+    <!--修改sys_user_relation表-->
+    <update id="updateRelation" parameterType="com.central.user.model.UserRole">
+        update sys_user_relation
+        <set >
+            <if test="enterpType != null" >
+                enterp_type = #{enterpType},
+            </if>
+            <if test="persCateg != null" >
+                pers_categ = #{persCateg},
+            </if>
+            <if test="orgCateg != null" >
+                org_categ = #{orgCateg},
+            </if>
+            <if test=" userId!= null" >
+                user_id = #{userId},
+            </if>
+            <if test=" compId!= null" >
+                comp_id = #{compId},
+            </if>
+            <if test="province != null" >
+                province = #{province},
+            </if>
+            <if test="city != null" >
+                city = #{city},
+            </if>
+            <if test="county != null" >
+                county = #{county},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+</mapper>

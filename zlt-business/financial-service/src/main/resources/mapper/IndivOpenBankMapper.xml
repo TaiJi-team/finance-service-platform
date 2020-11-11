@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.central.finance.mapper.IndivOpenBankMapper">
+    <select id="findList" resultType="com.central.finance.model.IndivOpenBank">
+        select * from auth_indiv_open_bank t
+    </select>
+    <insert id="saveAdd">
+        insert  into auth_indiv_open_bank (id,comp_id,comp_name,bank_name,bank_account,open_lisence)
+        values (#{id},#{compId},#{compName},#{bankName},#{bankAccount},#{openLisence})
+    </insert>
+</mapper>

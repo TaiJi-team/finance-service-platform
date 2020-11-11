@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.central.finance.mapper.FinanceProductMapper">
+    <select id="findList" resultType="com.central.finance.model.FinanceProduct">
+        select * from prod_finance_product t
+    </select>
+    <select id="findUserById" resultType="com.central.finance.model.FinanceProduct">
+        select * from prod_finance_product t where t.id=#{id}
+    </select>
+    <insert id="saveAdd">
+        insert into prod_finance_product (id,comp_id,type,name,feature) values (#{id},#{compId},#{type},#{name},#{feature})
+    </insert>
+</mapper>

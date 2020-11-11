@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.central.backstage.mapper.UserCompOperMapper">
+    <select id="findList" resultType="com.central.backstage.model.UserCompOper">
+        select * from sys_user_comp_oper t
+    </select>
+    <insert id="saveAdd">
+        insert into sys_user_comp_oper (id,name,comp_id) values (#{id},#{name},#{compId})
+    </insert>
+
+    <select id="findUserById"  resultType="com.central.backstage.model.UserCompOper">
+        select * from sys_user_comp_oper t where comp_id=#{id}
+    </select>
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.central.finance.mapper.DictDataMapper">
+    <select id="findList" resultType="com.central.finance.model.DictData">
+        select * from sys_dict_data t
+    </select>
+    <select id="selectDistById" parameterType="java.lang.String" resultType="com.central.finance.model.DictData" >
+        select * from sys_dict_data where type_id = #{id}
+    </select>
+    <select id="selectDist" parameterType="java.lang.String" resultType="com.central.finance.model.DictData" >
+        select * from sys_dict_data where id = #{id}
+    </select>
+    <insert id="saveDictData" parameterType="com.central.finance.model.DictData">
+        INSERT INTO sys_dict_data (id,type_id,code,eng_name,cn_name,order,remark,create_date,update_date,delete_date,status) VALUES (#{id},#{typeId},#{code},#{engName},#{cnName},#{order},#{remark},#{createDate},#{updateDate},#{deleteDate},#{status})
+    </insert>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.central.finance.mapper.CompanyMapper">
+    <select id="findList" resultType="com.central.finance.model.Company">
+        select * from auth_company t
+    </select>
+    <select id="getById" resultType="com.central.finance.model.Company">
+        select *  from auth_company t where t.id=#{id}
+    </select>
+
+    <insert id="save">
+        insert  into auth_company (id,name,latest_inspect_msg) values (#{id},#{name},#{latestInspectMsg})
+    </insert>
+</mapper>

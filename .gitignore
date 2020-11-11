@@ -19,5 +19,18 @@
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+.classpath
+.DS_Store
+.idea/
+*.iml
+data
+logs
+target
+.vscode/
+.settings/
+.git/
+.project
+.factorypath
+zlt-uaa/.factorypath
+zlt-gateway/sc-gateway/.factorypath
+zlt-commons/zlt-auth-client-spring-boot-starter/.factorypath

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.central.backstage.mapper.UserOrgProdmanagMapper">
+
+    <select id="findList" resultType="com.central.backstage.model.UserOrgProdmanag">
+        select * from sys_user_org_prodmanag t
+    </select>
+    <insert id="saveManage">
+        insert  into sys_user_org_prodmanag (id,comp_id,org_categ,name,phone,real_name) values(#{id},#{compId},#{orgCateg},#{name},#{phone},#{realName})
+    </insert>
+</mapper>
