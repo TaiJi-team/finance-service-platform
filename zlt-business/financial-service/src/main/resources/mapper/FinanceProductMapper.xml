@@ -8,7 +8,9 @@
     <select id="findUserById" resultType="com.central.finance.model.FinanceProduct">
         select * from prod_finance_product t where t.id=#{id}
     </select>
-    <insert id="saveAdd">
-        insert into prod_finance_product (id,comp_id,type,name,feature) values (#{id},#{compId},#{type},#{name},#{feature})
+    <insert id="saveAdd" parameterType="com.central.finance.model.FinanceProduct">
+        insert into prod_finance_product
+        (id,comp_id,type,name,feature,loan_period,loan_rate_range,gua_mode,repay_mode,serv_area,comp_name)
+        values (#{id},#{compId},#{type},#{name},#{feature},#{loanPeriod},#{loanRateRange},#{guaMode},#{repayMode},#{servArea},#{compName})
     </insert>
 </mapper>

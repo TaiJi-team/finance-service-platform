@@ -44,4 +44,5 @@ public class FinanceProduct implements Serializable {
         private String province;
         private String city;
         private String county;
+        private String compName;
     }

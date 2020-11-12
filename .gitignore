@@ -34,3 +34,4 @@ target
 zlt-uaa/.factorypath
 zlt-gateway/sc-gateway/.factorypath
 zlt-commons/zlt-auth-client-spring-boot-starter/.factorypath
+zlt-config/src/main/resources/application-dev.properties
