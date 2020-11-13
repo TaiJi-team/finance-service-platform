@@ -13,23 +13,22 @@ import java.io.PrintWriter;
 
 @Slf4j
 public class GlobalInterceptor implements HandlerInterceptor {
-//public class GlobalInterceptor  {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object obj) throws Exception {
         String secretKey = request.getHeader("from");
         String token = request.getHeader("Authorization");
         log.info("-----------------  secretkey: {}, token: {}, request uri: {} --------------- ", secretKey, token, request.getRequestURI());
-        String[] arr = {"gateway", "uaaServer"};
-        if(StringUtils.isAllEmpty(token, token) || (StringUtils.isNotEmpty(secretKey) && !StringUtils.containsAny(token, arr))) {
-            response.setContentType("application/json; charset=utf-8");
-            PrintWriter writer = response.getWriter();
-            writer.write("error");
-            log.info("-----------------  response error, request uri: {} --------------- ", request.getRequestURI());
-            return false;
+        String[] range = {"gateway", "uaaServer"};
+        if(request.getRequestURI().startsWith("/users") || StringUtils.isNotEmpty(token) || (StringUtils.isNotEmpty(secretKey) && StringUtils.containsAny(secretKey, range))) {
+            log.info("-----------------  response common, request uri: {} --------------- ", request.getRequestURI());
+            return true;
         }
-        log.info("-----------------  response common, request uri: {} --------------- ", request.getRequestURI());
-        return true;
+        response.setContentType("application/json; charset=utf-8");
+        PrintWriter writer = response.getWriter();
+        writer.write("false");
+        log.info("-----------------  response error, request uri: {} --------------- ", request.getRequestURI());
+        return false;
     }
 
 }

@@ -13,9 +13,9 @@ public class WebMvcConfig extends DefaultWebMvcConfig {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-//        GlobalInterceptor interceptor = new GlobalInterceptor();
+       GlobalInterceptor interceptor = new GlobalInterceptor();
 //        interceptor.setRedisUUID(redisUUID);
 //        interceptor.setAuthIgnoreConfig(applicationContext.getBean(AuthIgnoreConfig.class));
-//        registry.addInterceptor(interceptor).addPathPatterns("/**");
+       registry.addInterceptor(interceptor).addPathPatterns("/**");
     }
 }
